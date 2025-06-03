@@ -80,7 +80,8 @@ b1_bar_shards = [
     for i in range(tp_size)
 ]
 
-# Communication
+# Communication (All Gather)
+# All Gather because TTT-Linear (single layer) is used.
 t1 = torch.cat(t1_parts, dim=-1)  # [B, nh, K, f]
 t2 = torch.cat(t2_parts, dim=-1)  # [B, nh, K, f]
 b1_bar = torch.cat(b1_bar_shards, dim=-1)
