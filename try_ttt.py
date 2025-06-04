@@ -80,7 +80,7 @@ b1_bar_shards = [
     for i in range(tp_size)
 ]
 
-# Communication (All Gather)
+# Communication (All Gather) Communication Volume: 3*B*nh*K*f_chunk
 # All Gather because TTT-Linear (single layer) is used.
 t1 = torch.cat(t1_parts, dim=-1)  # [B, nh, K, f]
 t2 = torch.cat(t2_parts, dim=-1)  # [B, nh, K, f]
